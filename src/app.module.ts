@@ -6,6 +6,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { TodoModule } from './todo/todo.module';
 import { Todo } from './todo/entities/todo.entity';
+import { StatusModule } from './status/status.module';
+import { Status } from './status/entities/status.entity';
 
 @Module({
   imports: [
@@ -22,10 +24,11 @@ import { Todo } from './todo/entities/todo.entity';
       username: 'postgres',
       password: 'postgres',
       database: 'aircos-todo',
-      entities: [Todo],
+      entities: [Todo, Status],
       synchronize: true,
     }),
-    TodoModule
+    TodoModule,
+    StatusModule
   ],
   controllers: [],
   providers: [],
